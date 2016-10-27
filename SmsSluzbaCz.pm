@@ -6,7 +6,6 @@ use strict;
 use LWP::UserAgent;
 use Text::Unaccent;
 use XML::Simple;
-use Data::Dumper;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
 $VERSION     = 0.02;
@@ -74,8 +73,6 @@ sub sendRequest
 
 	$req->content($content); # length required
 	my $resp = $ua->request($req);
-
-	# print Dumper($resp);
 
 	if ($resp->is_success) {
 		my $xmlParser = XML::Simple->new();
