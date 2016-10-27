@@ -39,6 +39,7 @@ sub new {
 	return($self);
 }
 
+
 # Request the server for the account info
 # returns HASH on success, 0 on failure
 sub accountInfo
@@ -50,6 +51,7 @@ sub accountInfo
 
 	return $self->sendRequest(url => $url, method => 'POST');
 }
+
 
 sub sendRequest
 {
@@ -91,8 +93,8 @@ sub sendRequest
 		print "HTTPS POST error message: " . $resp->message . "\n";
 		return 0;
 	}
-
 }
+
 
 # Sends a message, 
 # the recipient must by a valid phonenumber
@@ -119,8 +121,8 @@ sub sendSms {
 	my $url = $self->authUrl(url => SEND_URL);
 
 	return $self->sendRequest(url => $url, method => 'POST', content => $postData);
-		
 }
+
 
 # Sends an message to multiple recipients, 
 # the recipient must by a valid phonenumber
@@ -145,6 +147,7 @@ sub sendSmsToMultipleRecipients
 	return $results;
 }
 
+
 #fetch a hash of responses from the server
 #count int (count of messages to fetch)
 #returns HASH or 0 on failure
@@ -162,6 +165,7 @@ sub fetchResponses
 	return $self->sendRequest(url => $url, method => 'POST');
 }
 
+
 #sets a message as read on the server
 #messageId string
 #returns HASH or 0 on failure
@@ -173,7 +177,6 @@ sub dismissResponse
 	my $url = $self->authUrl(url => CONFIRM_URL) . "&type=incoming_message&id=" . $params{messageId};
 
 	return $self->sendRequest(url => $url, method => 'GET');
-
 }
 
 
@@ -190,6 +193,7 @@ sub deliveryReport
 	return $self->sendRequest(url => $url, method => 'GET');
 }
 
+
 # SMS API call to sms.sluzba.cz
 sub prepareXmlSendSms {
 	my ($self, $recipient, $message) = @_;
@@ -203,6 +207,7 @@ sub prepareXmlSendSms {
 	return $data;
 }
 
+
 # Regular expression taken from: https://php.vrana.cz/regularni-vyraz-pro-kontrolu-cisla.php (2016)
 # param1 string
 # returns bool
@@ -213,8 +218,9 @@ sub validRecipient
 	return $string =~ m/^-?(0|[1-9][0-9]*|(?=\.))(\.[0-9]+)?$/;
 }
 
-
-	
+# returns a url with the authentication parameters
+#param1 string
+#returns string
 sub authUrl
 {
 	my $self = shift;
@@ -225,6 +231,7 @@ sub authUrl
 		"&password=" . $self->{password} . 
 		"&affiliate=" . AFF;
 }
+
 
 # Unaccents a string
 # param1 string
