@@ -28,7 +28,7 @@ print Dumper($deliveredStatus);
 
 ## Send single message to multiple recipients
 ```
-my @numbers = ('731263945', '608535332');
+my @numbers = ('777777777', '608000000');
 my $message = "Test";
 my $smsStatusMultiple = $smsManager->sendSmsToMultipleRecipients(recipients => \@numbers, message => $message);
 print Dumper($smsStatusMultiple);
