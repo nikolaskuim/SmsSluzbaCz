@@ -18,7 +18,7 @@ print Dumper($info);
 
 
 my @numbers = ('777777777', '608000000');
-my $mess2 = "Test 2";
+my $mess2 = "Test";
 my $smsStatusMultiple = $smsManager->sendSmsToMultipleRecipients(recipients => \@numbers, message => $mess2);
 print Dumper($smsStatusMultiple);
 
