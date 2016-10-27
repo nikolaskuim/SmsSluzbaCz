@@ -177,6 +177,19 @@ sub dismissResponse
 }
 
 
+#sets a message as read on the server
+#messageId string
+#returns HASH or 0 on failure
+sub deliveryReport
+{
+	my $self = shift;
+	my (%params) = @_;
+
+	my $url = $self->authUrl(url => FETCH_URL) . "&act=get_delivery_report&id=" . $params{messageId};
+
+	return $self->sendRequest(url => $url, method => 'GET');
+}
+
 # SMS API call to sms.sluzba.cz
 sub prepareXmlSendSms {
 	my ($self, $recipient, $message) = @_;

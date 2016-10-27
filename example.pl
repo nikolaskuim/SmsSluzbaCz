@@ -9,14 +9,21 @@ use Data::Dumper;
 my $smsManager = SmsSluzbaCz->new(username => 'username', password => 'password');
 
 # Get account basic info
-my $info = $smsManager->accountInfo();
-print Dumper($info);
+# my $info = $smsManager->accountInfo();
+# print Dumper($info);
 
-# Send a single message
+# # Send a single message
 my $message = "Test";
 my $phone = "731263945";
 my $smsStatus = $smsManager->sendSms(recipient => $phone, message => $message);
 print Dumper($smsStatus);
+
+# is message delivered? (wait 8 seconds and check)
+sleep(8);
+my $messageId = $smsStatus->{message}->{id};
+my $deliveredStatus = $smsManager->deliveryReport(messageId => $messageId);
+print Dumper($deliveredStatus);
+
 
 # send a message to multiple recipients
 # a better foreach wrapper for the sendSms method

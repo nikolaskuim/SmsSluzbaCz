@@ -20,6 +20,12 @@ my $smsStatus = $smsManager->sendSms(recipient => $phone, message => $message);
 print Dumper($smsStatus);
 ```
 
+## Is message delivered?
+```
+my $deliveredStatus = $smsManager->deliveryReport(messageId => '420777777777-20161027153953608');
+print Dumper($deliveredStatus);
+```
+
 ## Send single message to multiple recipients
 ```
 my @numbers = ('731263945', '608535332');
