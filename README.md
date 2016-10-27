@@ -2,6 +2,12 @@
 
 This module can send SMS to recipients via API calls to sms.sluzba.cz.
 
+dependencies:
+- [LWP::UserAgent](http://search.cpan.org/~ether/libwww-perl-6.15/lib/LWP/UserAgent.pm)
+- [Text::Unaccent](http://search.cpan.org/~ldachary/Text-Unaccent-1.08/Unaccent.pm)
+- [XML::Simple](http://search.cpan.org/~grantm/XML-Simple-2.22/lib/XML/Simple.pm)
+
+
 ## Setup
 
 ```
