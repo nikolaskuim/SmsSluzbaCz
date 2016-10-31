@@ -19,7 +19,7 @@ use constant {
 	INFO_URL => 'https://smsgateapi.sluzba.cz/apixml30/info/credit',
 	CONFIRM_URL => 'https://smsgateapi.sluzba.cz/apixml30/confirm',
 	DEFAULT_FETCH_COUNT => 30,
-	AFF => '18845'
+	AFF => '18845' # change this to your own affiliate code if you like
 };
 
 # Constructor
