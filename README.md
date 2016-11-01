@@ -10,7 +10,7 @@ dependencies:
 
 ## Setup
 
-```
+```perl
 my $smsManager = SmsSluzbaCz->new(username => 'username', password => 'password');
 ```
 
