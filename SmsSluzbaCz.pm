@@ -14,10 +14,10 @@ $VERSION     = 0.02;
 @EXPORT_OK   = qw(new);
 
 use constant {
-	SEND_URL => 'https://smsgateapi.sluzba.cz/apixml30/receiver',
-	FETCH_URL => 'https://smsgateapi.sluzba.cz/apixml30/sender',
-	INFO_URL => 'https://smsgateapi.sluzba.cz/apixml30/info/credit',
-	CONFIRM_URL => 'https://smsgateapi.sluzba.cz/apixml30/confirm',
+	SEND_URL => 'https://smsgateapi.sms-sluzba.cz/apixml30/receiver',
+	FETCH_URL => 'https://smsgateapi.sms-sluzba.cz/apixml30/sender',
+	INFO_URL => 'https://smsgateapi.sms-sluzba.cz/apixml30/info/credit',
+	CONFIRM_URL => 'https://smsgateapi.sms-sluzba.cz/apixml30/confirm',
 	DEFAULT_FETCH_COUNT => 30,
 	AFF => '18845' # change this to your own affiliate code if you like
 };
